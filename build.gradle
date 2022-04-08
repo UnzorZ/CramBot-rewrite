@@ -1,0 +1,40 @@
+plugins {
+    id'java'
+    id'application'
+    id'com.github.johnrengelman.shadow' version '6.0.0'
+}
+
+mainClassName = 'dev.unzor.crambot.Main'
+
+version '1.2'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+    maven {
+        name 'm2-dv8tion'
+        url 'https://m2.dv8tion.net/releases'
+    }
+    jcenter()
+}
+
+dependencies {
+    implementation("net.dv8tion:JDA:4.3.0_277")
+    implementation 'com.google.code.gson:gson:2.8.6'
+    implementation 'com.jagrosh:jda-utilities:3.0.5'
+    implementation group: 'org.apache.commons', name: 'commons-lang3', version: '3.11'
+    implementation"ch.qos.logback:logback-classic:1.2.3"
+    implementation group: 'org.xerial', name: 'sqlite-jdbc', version: '3.34.0'
+    implementation group: 'com.formdev', name: 'flatlaf', version: '1.1.2'
+    implementation files('lib/miglayout-swing.jar')
+    implementation files('lib/miglayout-core.jar')
+}
+
+shadowJar {
+    archiveBaseName.set('CramBot')
+    archiveClassifier.set('Rewrite')
+    archiveVersion.set('2.24')
+}
+
+compileJava.options.encoding = 'UTF-8'
