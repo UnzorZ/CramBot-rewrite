@@ -39,62 +39,68 @@ public class EmbedCreatorCommand extends Command {
             embed2.setColor(RandomColorUtil.getRandomColor());
             event.getChannel().sendMessage(embed2.build()).queue();
         }
-        if (args[2].equals("red")) {
-            color = 15158332;
-        }
-        if (args[2].equals("green")) {
-            color = 3066993;
-        }
-        if (args[2].equals("yellow")) {
-            color = 16776960;
-        }
-        if (args[2].equals("purple")) {
-            color = 10181046;
-        }
-        if (args[2].equals("black")) {
-            color = 2303786;
-        }
-        if (args[2].equals("aqua")) {
-            color = 1752220;
-        }
-        if (args[2].equals("dark_aqua")) {
-            color = 1146986;
-        }
-        if (args[2].equals("blue")) {
-            color = 3447003;
-        }
-        if (args[2].equals("dark_blue")) {
-            color = 2123412;
-        }
-        if (args[2].equals("dark_purple")) {
-            color = 7419530;
-        }
-        if (args[2].equals("vivid_pink")) {
-            color = 11342935;
-        }
-        if (args[2].equals("gold")) {
-            color = 15844367;
-        }
-        if (args[2].equals("dark_gold")) {
-            color = 12745742;
-        }
-        if (args[2].equals("orange")) {
-            color = 15105570;
-        }
-        if (args[2].equals("dark_orange")) {
-            color = 11027200;
-        }
-        if (args[2].equals("dark_red")) {
-            color = 10038562;
-        }
-        if (args[2].equals("grey")) {
-            color = 9807270;
-        }
-        if (args[2].equals("dark_grey")) {
-            color = 9807270;
-        }
-        if (args[2].equals("navy")) {
-            color = 3426654;
+        
+        switch (args[2]) {
+            case "red":
+                color = 15158332;
+                break;
+            case "green":
+                color = 3066993;
+                break;
+            case "yellow":
+                color = 16776960;
+                break;
+            case "purple":
+                color = 10181046;
+                break;
+            case "black":
+                color = 2303786;
+                break;
+            case "aqua":
+                color = 1752220;
+                break;
+            case "dark_aqua":
+                color = 1146986;
+                break;
+            case "blue":
+                color = 3447003;
+                break;
+            case "dark_blue":
+                color = 2123412;
+                break;
+            case "dark_purple":
+                color = 7419530;
+                break;
+            case "vivid_pink":
+                color = 11342935;
+                break;
+            case "gold":
+                color = 15844367;
+                break;
+            case "dark_gold":
+                color = 12745742;
+                break;
+            case "orange":
+                color = 15105570;
+                break;
+            case "dark_orange":
+                color = 11027200;
+                break;
+            case "dark_red":
+                color = 10038562;
+                break;
+            case "grey":
+                color = 9807270;
+                break;
+            case "dark_grey":
+                color = 9807270;
+                break;
+            case "navy":
+                color = 3426654;
+                break;
+            case "random":
+                color = getRandomNumberInRange(0, 9999999);
+                break;
         }
 
 
@@ -105,5 +111,10 @@ public class EmbedCreatorCommand extends Command {
         embed2.setFooter(String.valueOf(date));
         event.getChannel().sendMessage(embed2.build()).queue();
         color = 0;
+    }
+    
+    public static int getRandomNumberInRange(int min, int max) {
+        Random r = new Random();
+        return r.nextInt((max - min) + 1) + min;
     }
 }
